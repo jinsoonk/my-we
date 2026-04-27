@@ -1,0 +1,798 @@
+/* ============================================= */
+/* BLIPH HOMEPAGE CSS - PURE CSS ONLY           */
+/* File name: assets/css/style.css               */
+/* This file styles ONLY the index.html structure you already have. */
+/* No Tailwind, no mixing with JS yet.          */
+/* Copy everything below and save it exactly as assets/css/style.css */
+/* ============================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 1. Body - overall luxury background and text color */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #d6b997;     /* Cream background - warm and elegant */
+    color: #3c3486;                /* Deep navy text for luxury feel */
+    line-height: 1.6;
+}
+
+/* 2. NAVBAR styling */
+nav {
+    background-color: #0A2540;     /* Navy background */
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav > div {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo area */
+nav > div > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* Menu links */
+nav > div > div:nth-child(2) {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #D4AF77;               /* Gold hover - luxury accent */
+}
+
+/* Cart icon area */
+nav > div > div:last-child {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#cart-count {
+    background-color: #D4AF77;
+    color: #0A2540;
+    font-size: 0.75rem;
+    font-weight: bold;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 3. HERO SECTION - full screen luxury banner */
+header {
+    height: 100vh;
+    min-height: 700px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Background image - REPLACE THIS URL with your own hero flower photo */
+header > div:first-child {
+    position: absolute;
+    inset: 0;
+    background-image: url('home1.jpg'); /* ← PUT YOUR BEST LUXURY FLOWER PHOTO PATH HERE */
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+/* Dark overlay for text readability */
+header > div:first-child::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(10, 37, 64, 0.45); /* Navy overlay */
+    z-index: 2;
+}
+
+/* Text content inside hero */
+header > div:last-child {
+    position: relative;
+    z-index: 3;
+    max-width: 900px;
+    padding: 0 2rem;
+}
+
+header h1 {
+    font-size: 5.5rem;
+    font-weight: 700;
+    letter-spacing: 8px;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+header p:first-of-type {
+    font-size: 2rem;
+    color: #D4AF77;               /* Gold accent */
+    margin-bottom: 1rem;
+    letter-spacing: 3px;
+}
+
+header p:last-of-type {
+    font-size: 1.4rem;
+    color: white;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+}
+
+header a {
+    display: inline-block;
+    background-color: #D4AF77;
+    color: #0A2540;
+    padding: 18px 50px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+header a:hover {
+    background-color: #f5d29a;
+    transform: scale(1.05);
+}
+
+/* 4. SHOP BY OCCASION SECTION */
+section:nth-of-type(1) {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
+
+section:nth-of-type(1) h2 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+
+section:nth-of-type(1) > div > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Each occasion card */
+section:nth-of-type(1) > div > div > div {
+    background-color: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+section:nth-of-type(1) > div > div > div:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.12);
+}
+
+section:nth-of-type(1) img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+section:nth-of-type(1) h3 {
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 1.5rem 1rem 0.5rem;
+}
+
+section:nth-of-type(1) p {
+    text-align: center;
+    color: #D4AF77;
+    padding-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+/* 5. FEATURED PRODUCTS SECTION */
+section:nth-of-type(2) {
+    background-color: white;
+    padding: 5rem 2rem;
+}
+
+section:nth-of-type(2) > div {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+section:nth-of-type(2) > div > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+section:nth-of-type(2) h2 {
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+
+section:nth-of-type(2) a {
+    color: #D4AF77;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#featured-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Future product cards (JS will add them with this class) */
+.product-card {
+    background-color: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.12);
+}
+
+.product-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+/* 6. TESTIMONIALS SECTION */
+section:nth-of-type(3) {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    background-color: #F8F1E9;
+}
+
+section:nth-of-type(3) h2 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+section:nth-of-type(3) > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+}
+
+section:nth-of-type(3) > div > div {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+section:nth-of-type(3) p {
+    font-style: italic;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* 7. FOOTER */
+footer {
+    background-color: #0A2540;
+    color: white;
+    padding: 5rem 2rem 2rem;
+}
+
+footer > div {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 3rem;
+}
+
+footer h4 {
+    color: #D4AF77;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+footer a:hover {
+    color: #D4AF77;
+}
+
+footer .logo-small {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+footer > div:last-child {
+    text-align: center;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* 8. CART DRAWER (simple slide-in) */
+#cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 420px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+    transition: right 0.4s ease;
+    z-index: 9999;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+#cart-drawer.show {
+    right: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 3.5rem;
+    }
+    
+    nav > div > div:nth-child(2) {
+        display: none; /* Mobile menu will be added later */
+    }
+    
+    section:nth-of-type(1) > div > div,
+    section:nth-of-type(3) > div {
+        grid-template-columns: 1fr;
+    }
+}
+/* ==================== LUXURY KEN BURNS SLIDESHOW ==================== */
+#hero-slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;                    /* Important for zoom effect */
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.8s ease-in-out;
+    transform: scale(1.15);              /* Start slightly zoomed in */
+    z-index: 1;
+}
+
+/* Active slide = visible + smooth zoom animation */
+.hero-slide.active {
+    opacity: 1;
+    z-index: 2;
+    animation: kenBurnsZoom 12s ease-in-out infinite alternate;   /* 12 seconds zoom cycle */
+}
+
+/* Beautiful slow zoom in and out effect */
+@keyframes kenBurnsZoom {
+    0% {
+        transform: scale(1.15);     /* Start zoomed in a bit */
+    }
+    100% {
+        transform: scale(1.05);     /* Slowly zoom out */
+    }
+}
+
+/* Optional: Different speed for next slide when changing */
+.hero-slide.next {
+    animation: kenBurnsZoom 12s ease-in-out infinite alternate;
+}
+/* ==================== PREMIUM BRAND TEXT IN HERO ==================== */
+.hero-brand-content {
+    position: relative;
+    z-index: 5;
+    max-width: 920px;
+    padding: 0 2rem;
+    color: white;
+    text-align: center;
+}
+
+.brand-name {
+    font-family: 'Playfair Display', serif;   /* Luxury elegant serif font */
+    font-size: 7.5rem;
+    font-weight: 700;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.6);
+    line-height: 1;
+}
+
+.brand-meaning {
+    font-size: 1.65rem;
+    letter-spacing: 6px;
+    color: #D4AF77;                    /* Gold accent */
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-tagline {
+    font-size: 1.45rem;
+    max-width: 680px;
+    margin: 0 auto 2.5rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    line-height: 1.4;
+}
+
+.shop-button {
+    display: inline-block;
+    background-color: #D4AF77;
+    color: #372f83;
+    padding: 18px 60px;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(212, 175, 119, 0.3);
+}
+
+.shop-button:hover {
+    background-color: #f5d29a;
+    transform: scale(1.08);
+    box-shadow: 0 12px 25px rgba(212, 175, 119, 0.4);
+}
+
+/* Make brand text fade in nicely with slides */
+.hero-brand-content {
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.hero-slide.active ~ .hero-brand-content {
+    opacity: 1;
+}
+/* ==================== RESPONSIVE 16:9 VIDEO SECTION ==================== */
+.video-section {
+    padding: 80px 20px;
+    background-color: #d6b997;   /* Matches your site cream color */
+    text-align: center;
+}
+.vedio-container{
+max-width: 920px;
+margin: 0 auto;
+border-radius: 28px;
+overflow: hidden;
+    object-fit: cover;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16/9;
+    /* Keeps the video looking good without distortion */
+}
+/* SHOP PAGE STYLES */
+.shop-hero {
+    height: 400px;
+    background: linear-gradient(rgba(110,34,129,0.7), rgba(110,34,129,0.7)), url('assets/images/shop-hero.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.shop-hero-content h1 {
+    font-size: 3.5rem;
+    letter-spacing: 6px;
+}
+
+.shop-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    gap: 40px;
+}
+
+.filters-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.filter-btn {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    margin: 8px 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background: #6e2281;
+    color: white;
+    border-color: #6e2281;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    flex: 1;
+}
+
+.product-info {
+    padding: 16px;
+    text-align: center;
+}
+
+.quick-view-btn, .add-to-cart-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 9999px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.quick-view-btn {
+    background: #f0f0f0;
+    color: #372f83;
+}
+
+.add-to-cart-btn {
+    background: #6e2281;
+    color: white;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    max-width: 500px;
+    width: 90%;
+    border-radius: 20px;
+    padding: 25px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+/* ==================== SHOP HERO WITH BACKGROUND IMAGE ==================== */
+.shop-hero {
+    position: relative;
+    height: 480px;                    /* You can make it taller if you want */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.shop-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;                /* Makes image look good */
+    z-index: 1;
+}
+
+/* Dark overlay to make text readable */
+.shop-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(110, 34, 129, 0.55);   /* Your purple-navy with opacity */
+    z-index: 2;
+}
+
+/* Content on top */
+.shop-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    padding: 0 20px;
+    color: white;
+}
+
+.shop-hero-content h1 {
+    font-size: 3.8rem;
+    font-weight: 700;
+    letter-spacing: 6px;
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.6);
+}
+
+.shop-hero-content p {
+    font-size: 1.45rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.shop-now-btn {
+    display: inline-block;
+    background-color: #D4AF77;
+    color: #372f83;
+    padding: 16px 50px;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.shop-now-btn:hover {
+    background-color: #f5d29a;
+    transform: scale(1.05);
+}
+/* ==================== ABOUT PAGE STYLES ==================== */
+.about-hero {
+    height: 420px;
+    background: linear-gradient(rgba(110,34,129,0.65), rgba(110,34,129,0.65)), 
+                url('assets/images/about-hero.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.about-hero-content h1 {
+    font-size: 4rem;
+    letter-spacing: 8px;
+}
+
+.about-section {
+    padding: 100px 20px;
+    background-color: white;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text h2 {
+    font-size: 2.6rem;
+    color: #372f83;
+    margin-bottom: 1.2rem;
+}
+
+.about-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 2rem;
+}
+
+.values {
+    margin-top: 2rem;
+}
+
+.values h3 {
+    color: #6e2281;
+    margin-bottom: 1rem;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.passion-section {
+    padding: 100px 20px;
+    background-color: #d6b997;
+    text-align: center;
+}
+
+.passion-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.passion-container h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: #372f83;
+}
+
+.big-text {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #6e2281;
+    margin: 2rem 0;
+    line-height: 1.6;
+}

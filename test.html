@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head><title>form inline CSS Example</title>
+<style>
+    body{font-family: arial;
+    background-color: #f2f2f2}
+    h2{text-align: center;
+    color: darkblue;}
+    form{
+        width: 450px;
+        margin: auto;
+        padding: 100px;
+        background-color: aqua;
+        background-size: cover;
+        border: 5px solid #1a7632;
+        border-radius: 5px;
+    }
+    label{
+        font-weight:900;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select{
+        width: 100%;
+        padding: 20px;
+        margin: 10px 0 15px 0;
+        border: 1px solid #ccc;
+    }
+    input[type="radio"]{
+    margin-right: 30px;
+}
+input[type="submit"]{
+    width: 100%;
+    padding: 10px;
+    background-color: green;
+    color: rgb(247, 247, 247);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;}
+    input[type="submit"]:hover{
+    background-color: darkgreen;
+    }
+    </style></head>
+<body>
+    <br><br><br><br>
+    <h2>Registration Form</h2><br><br>
+    <form>
+        <label>full name: </label>
+         <input type="text" placeholder="Enter your full name"><br><br>
+        <label>Email: </label><br>
+        <input type="email" placeholder="Enter your email"><br><br>
+        <label>Password: </label><br><br>  
+        <input type="password" placeholder="Enter your password"><br><br>
+        <label>Gender: </label><br>
+        <div class="radio-group"><br>
+            <input type="radio" name="gender">male
+            <input type="radio" name="gender">female
+        </div><br>
+       <label>Country: </label><br><br>
+         <select>
+          <option>Ethiopia</option>
+          <option>Kenya</option>
+          <option>USA</option>
+         </select><br><br>
+
+    <input type="submit" value="Register">
+    </form>
+        </body>
+</html>

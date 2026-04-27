@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - BLIPH | Premium Flowers & Decor</title>
+    
+    <!-- Google Font for luxury feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
+    
+    <!-- Link to your existing CSS -->
+    <link rel="stylesheet" href="day3.css">
+</head>
+<body>
+
+    <!-- ==================== NAVBAR (Same as homepage) ==================== -->
+    <nav>
+        <div>
+            <div class="logo-container">
+                <img src="logo.png" alt="BLIPH Logo" style="height: 50px;">
+                <span class="brand-name">BLIPH</span>
+            </div>
+            
+            <div>
+                <a href="home.html">HOME</a>
+                <a href="shop.html">SHOP</a>
+                <a href="about.html">OUR STORY</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+            
+            <div onclick="toggleCart()" style="cursor: pointer;">
+                <span style="font-size: 1.6rem;">🛍️</span>
+                <span id="cart-count" style="background:#D4AF77; color:#2514c0; font-size:0.8rem; width:24px; height:24px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:bold;">0</span>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ==================== SHOP PAGE HERO WITH BACKGROUND IMAGE ==================== -->
+<header class="shop-hero">
+    <div class="shop-hero-overlay"></div>
+    
+    <!-- Background Image -->
+    <img src="bir3.jpg" 
+         alt="BLIPH Shop know" class="shop-hero-bg">
+
+    <!-- Content on top of image -->
+     <section>
+    <div class="shop-hero-content">
+        <h1>Our Beautiful Collection</h1>
+        <p>Discover fresh flowers, premium bouquets &amp; elegant decorations for every celebration</p>
+        <a href="#" onclick="document.getElementById('products-grid').scrollIntoView({ behavior: 'smooth' })" 
+           class="shop-now-btn">Browse All Flowers</a>
+    </div>
+</header>
+
+            <!-- Products Grid -->
+             
+            <div class="products-area">
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search flowers, bouquets..." onkeyup="searchProducts()">
+                </div>
+                
+                <div id="products-grid" class="products-grid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER (Same as homepage) ==================== -->
+    <footer>
+        <!-- Your existing footer code from index.html can be copied here -->
+        <div>
+            <div>
+                <span class="brand-name" style="font-size: 2rem;">BLIPH</span>
+                <p>Beauty, Love, Integrity, Peace &amp; Hope delivered to your door in Oromiya.</p>
+            </div>
+            <!-- Add other footer columns as needed -->
+        </div>
+    </footer>
+
+    <!-- ==================== QUICK VIEW MODAL ==================== -->
+    <div id="quick-view-modal" class="modal">
+        <div class="modal-content">
+            <button onclick="closeModal()" class="close-btn">✕</button>
+            <div id="modal-body">
+                <!-- Filled by JS -->
+            </div>
+        </div>
+    </div>
+    <script src="shop.js"></script>
+
+
+<script>
+    // =============================================
+    // SHOP PAGE JAVASCRIPT - Enhanced Interactivity
+    // =============================================
+
+    // All products data (you can add more later)
+    let allProducts = [
+        {
+            id: 1,
+            name: "Eternal Rose Bouquet",
+            price: 1250,
+            occasion: "wedding",
+            img: "bir1.jpg",
+            desc: "Timeless red roses with fresh greenery and elegant wrapping."
+        },
+        {
+            id: 2,
+            name: "Wedding Arch Flowers",
+            price: 4500,
+            occasion: "wedding",
+            img: "hero4.jpg",
+            desc: "Stunning floral arch perfect for weddings and ceremonies."
+        },
+        {
+            id: 3,
+            name: "Birthday Sunshine Box",
+            price: 890,
+            occasion: "birthday",
+            img: "hero3.jpg",
+            desc: "Bright and joyful arrangement to make birthdays special."
+        },
+        {
+            id: 4,
+            name: "Luxury Party Centerpiece",
+            price: 2100,
+            occasion: "party",
+            img: "lux.jpg",
+            desc: "Elegant centerpiece for tables and parties."
+        },
+        {
+            id: 5,
+            name: "Romantic Anniversary Bouquet",
+            price: 1650,
+            occasion: "anniversary",
+            img: "anv.jpg",
+            desc: "Soft pastel tones perfect for celebrating love."
+        },
+        {
+            id: 6,
+            name: "Premium White Lily Bouquet",
+            price: 1350,
+            occasion: "wedding",
+            img: "wed5.jpg",
+            desc: "Pure and sophisticated white lilies."
+        }
+    ];
+
+    let cart = [];   // Shared cart (same as homepage)
+
+    // Render all products
+    function renderProducts(productsToShow) {
+        const container = document.getElementById('products-grid');
+        container.innerHTML = '';
+
+        if (productsToShow.length === 0) {
+            container.innerHTML = '<p style="grid-column: 1/-1; text-align:center; padding:40px; font-size:1.2rem;">No products found.</p>';
+            return;
+        }
+
+        productsToShow.forEach(product => {
+            const cardHTML = `
+                <div class="product-card">
+                    <img src="${product.img}" alt="${product.name}">
+                    <div class="product-info">
+                        <h4>${product.name}</h4>
+                        <p class="price">ETB ${product.price}</p>
+                        <p class="desc">${product.desc}</p>
+                        
+                        <div class="button-group">
+                            <button onclick="quickView(${product.id})" class="quick-view-btn">Quick View</button>
+                            <button onclick="addToCartFromShop(${product.id})" class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += cardHTML;
+        });
+    }
+
+    // Add to cart from shop page
+    function addToCartFromShop(id) {
+        const product = allProducts.find(p => p.id === id);
+        if (!product) return;
+
+        cart.push(product);
+        updateCartCount();
+        
+        // Show success message
+        showNotification(`${product.name} added to cart!`);
+    }
+
+    // Quick View Modal
+    function quickView(id) {
+        const product = allProducts.find(p => p.id === id);
+        if (!product) return;
+
+        const modalBody = document.getElementById('modal-body');
+        modalBody.innerHTML = `
+            <div style="display:flex; gap:30px; flex-wrap:wrap;">
+                <img src="${product.img}" style="width:100%; max-width:280px; border-radius:16px; object-fit:cover;">
+                <div style="flex:1; min-width:260px;">
+                    <h2 style="margin-bottom:10px;">${product.name}</h2>
+                    <p style="font-size:2rem; color:#D4AF77; font-weight:700; margin-bottom:15px;">ETB ${product.price}</p>
+                    <p style="line-height:1.6; color:#555;">${product.desc}</p>
+                    
+                    <div style="margin-top:25px;">
+                        <button onclick="addToCartFromShop(${product.id}); closeModal();" 
+                                style="width:100%; padding:16px; background:#6e2281; color:white; border:none; border-radius:9999px; font-size:1.1rem; cursor:pointer;">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.getElementById('quick-view-modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('quick-view-modal').style.display = 'none';
+    }
+
+    // Simple notification
+    function showNotification(message) {
+        const notif = document.createElement('div');
+        notif.textContent = message;
+        notif.style.cssText = `
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            background: #D4AF77; 
+            color: #372f83; 
+            padding: 16px 24px; 
+            border-radius: 9999px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            font-weight: 600;
+            z-index: 10000;
+        `;
+        document.body.appendChild(notif);
+
+        setTimeout(() => {
+            notif.style.opacity = '0';
+            setTimeout(() => notif.remove(), 400);
+        }, 2500);
+    }
+
+    // Filter by Occasion
+    function filterByOccasion(occasion) {
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        
+        // Find the clicked button and make it active
+        const buttons = document.querySelectorAll('.filter-btn');
+        for (let btn of buttons) {
+            if (btn.getAttribute('onclick').includes(occasion)) {
+                btn.classList.add('active');
+                break;
+            }
+        }
+
+        if (occasion === 'all') {
+            renderProducts(allProducts);
+        } else {
+            const filtered = allProducts.filter(product => product.occasion === occasion);
+            renderProducts(filtered);
+        }
+    }
+
+    // Filter by Price Range
+    function filterByPrice(maxPrice) {
+        document.getElementById('price-value').textContent = maxPrice;
+        const filtered = allProducts.filter(product => product.price <= parseInt(maxPrice));
+        renderProducts(filtered);
+    }
+
+    // Search Products
+    function searchProducts() {
+        const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+        
+        const filtered = allProducts.filter(product => 
+            product.name.toLowerCase().includes(searchTerm) || 
+            product.desc.toLowerCase().includes(searchTerm)
+        );
+        
+        renderProducts(filtered);
+    }
+
+    // Update cart count (shared with homepage)
+    function updateCartCount() {
+        const countEl = document.getElementById('cart-count');
+        if (countEl) countEl.textContent = cart.length;
+    }
+
+    // Toggle Cart (reuse from main.js)
+    function toggleCart() {
+        // This will use the cart drawer from main.js if you have it
+        if (typeof window.toggleCartFromMain === 'function') {
+            window.toggleCartFromMain();
+        } else {
+            alert('Cart functionality is connected. Total items: ' + cart.length);
+        }
+    }
+
+    // Initialize when page loads
+    window.onload = function() {
+        renderProducts(allProducts);
+        updateCartCount();
+        
+        // Make price slider show current value
+        const priceSlider = document.getElementById('price-range');
+        if (priceSlider) {
+            priceSlider.addEventListener('input', function() {
+                filterByPrice(this.value);
+            });
+        }
+        
+        console.log('✅ BLIPH Shop Page JS loaded successfully!');
+    };
+</script>
+</body>
+</html>
