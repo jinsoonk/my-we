@@ -70,11 +70,17 @@
             <a href="#" style="background: #adadad; color: #372f83; padding: 10px 22px; border-radius: 9999px; font-weight: 600; text-decoration: none;">Login</a>
             <a href="#" style="background: #a0a09f; color: #372f83; padding: 10px 22px; border-radius: 9999px; font-weight: 600; text-decoration: none;">Sign Up</a>
             
-            <!-- Cart -->
-            <div onclick="toggleCart()" style="cursor: pointer; display: flex; align-items: center; gap: 6px; color: white;">
-                <span style="font-size: 1.7rem;">🛍️</span>
-                <span id="cart-count" style="background:#D4AF77; color:#372f83; font-size:0.85rem; width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold;">0</span>
-            </div>
+          <div onclick="toggleCart()" style="cursor: pointer; display: flex; align-items: center; gap: 8px; color: white; position: relative;">
+    <span id="cart-icon" 
+          style="font-size: 1.9rem; transition: transform 0.4s ease;">
+        🌷
+    </span>
+    
+    <span id="cart-count" 
+          style="position: absolute; top: -8px; right: -10px; background: #D4AF77; color: #372f83; font-size: 0.85rem; font-weight: bold; min-width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0 6px;">
+        0
+    </span>
+</div>
         </div>
     </div>
 </nav>
@@ -96,7 +102,7 @@
     </div>
 
     <!-- Dark Overlay -->
-    <div style="position: absolute; inset: 0; background: rgba(195, 191, 196, 0.03); z-index: 2;"></div>
+    <div style="position: absolute; inset: 0; background: rgba(170, 170, 170, 0.03); z-index: 2;"></div>
 
     <!-- Brand Content -->
     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 3; color: white; width: 90%; max-width: 900px;">

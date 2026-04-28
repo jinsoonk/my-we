@@ -882,3 +882,25 @@ overflow: hidden;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     line-height: 1.2;
 }
+/* LUXURY SEARCH BAR */
+#search-input {
+    width: 100%;
+    max-width: 680px;
+    padding: 18px 24px;
+    font-size: 1.15rem;
+    border: 2px solid #ddd;
+    border-radius: 50px;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+#search-input:focus {
+    border-color: #D4AF77;
+    box-shadow: 0 0 0 4px rgba(212, 175, 119, 0.15);
+    transform: scale(1.02);
+}
+
+#search-input::placeholder {
+    color: #999;
+}

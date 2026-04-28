@@ -279,3 +279,13 @@ animateOccasionCards();
  
     console.log('✅ BLIPH Homepage JS loaded successfully!');
 });
+// Cart icon hover animation
+const cartIcon = document.getElementById('cart-icon');
+if (cartIcon) {
+    cartIcon.addEventListener('mouseenter', () => {
+        cartIcon.style.transform = 'scale(1.3) rotate(12deg)';
+    });
+    cartIcon.addEventListener('mouseleave', () => {
+        cartIcon.style.transform = 'scale(1)';
+    });
+}
