@@ -8,6 +8,40 @@
     <!-- Google Font for luxury feel -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="day3.css">
+    <style>
+        .about-hero {
+            background: url("hero2.jpg") center/cover no-repeat;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+        .about-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+        }
+        .about-hero section {
+            position: relative;
+            z-index: 1;
+            max-width: 850px;
+            padding: 2rem;
+        }
+        .about-hero h1 {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            margin-bottom: 0.7rem;
+        }
+        .about-hero h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,12 +49,12 @@
     <nav>
         <div>
             <div class="logo-container">
-                <img src="assets/images/logo.png" alt="BLIPH Logo" style="height: 50px;">
-                <span class="brand-name">BLIPH</span>
+                <img src="logo.png" alt="BLIPH Logo" style="height: 50px;">
+                <span class="brand-name" style="color: darkgoldenrod;">BLIPH</span>
             </div>
             
             <div>
-                <a href="home.html">HOME</a>
+                <a href="index.html">HOME</a>
                 <a href="shop.html">SHOP</a>
                 <a href="about.html">OUR STORY</a>
                 <a href="contact.html">CONTACT</a>
@@ -35,10 +69,12 @@
 
     <!-- Hero Section -->
     <header class="about-hero">
-        <div class="about-hero-content">
-            <h1>Our Story</h1>
-            <p>Beauty • Love • Integrity • Peace • Hope</p>
-        </div>
+       <section>
+            <div class="about-hero-content">
+                <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color: #c68412;">Our Story</h1>
+                <h2>Beauty • Love • Integrity • Peace • Hope</h2>
+            </div>
+       </section>
     </header>
 
     <!-- Vision & Passion Section -->
@@ -74,10 +110,14 @@
 
             <!-- Right side image -->
             <div class="about-image">
+<<<<<<< HEAD
                 <img src="hero1.jpg" alt="BLIPH Team & Flowers">
+=======
+                <img src="hero1.jpg" alt="Floral display with team members in a bright welcoming space conveying warm care and craftsmanship">
+>>>>>>> dcc860d (rename home to index)
             </div>
         </div>
-    </section>
+    
 
     <!-- Passion Statement -->
     <section class="passion-section">

@@ -1,81 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
        <meta http-equiv="refresh"content="0; url=home.html">
        <meta charset="UTF-8">
        <meta name="viewport" content="width=device-width,intital-scale=1.0">
        <title>day1</title>
        <link rel="stylesheet" 
        href="style.css">
+=======
+    <!-- 1. DOCTYPE tells the browser this is HTML5 document -->
+    <meta charset="UTF-8">
+    
+    <!-- 2. Viewport meta tag makes the site responsive on mobile (we will style it later) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 3. Page title that appears in the browser tab -->
+    <title>BLIPH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
+
+    <!-- 
+        NOTE FROM YOUR PARTNER:
+        We are doing ONLY STRUCTURE right now.
+        No CSS, no Tailwind, no colors, no fonts, no background images yet.
+        I have put clear comments like this:
+        <!-- === SECTION NAME === -->
+        <!-- PUT YOUR IMAGE HERE -->
+                      
+<link rel="stylesheet" href="day3.css">
+>>>>>>> dcc860d (rename home to index)
 </head>
-<body> 
-<h1>wellcome to pluto</h1>
-<button id="testbutton">click me</button>
-<script srC="script.js"></script>
-<h2>day 1 try to creat interactive website</h2>
-<form acrion="#"method="post"autocomplete="on">
-<label fo="fullname"id="ibname"class="label-clas"title="enter your fullname"style="color:blue;">
-fullname</label>
-<input type="text"
-       id="fullname"
-       name="fullname"
-       value=""
-       placeholder="enter your fullname"
-       required
-       readonly
-       disabled
-       maxlength="50"
-       minlength="3"
-       size="30"
-       autofocus
-       autocomplete="name"
-       pattern="[A-Za-z\s]+"title="only letters allowed"
-       class="input-class">
-       <label for="email">emil:</label>
-       <input
-       type="email"
-       id="email"
-       name="email"
-       placeholder="entre your email"
-       required
-       autocomplete="email">
-       <label fro="age">age</label>
-       <input 
-       type="number"
-       id="age"
-       name="age"
-       min="1"
-       max="100"
-       step="1">
-       <label for="password">password</label>
-        <input 
-        type="password"
-        id="password"
-        name="password"
-        required>
-        <label for="dob">date of birth</label>
-        <input type="number"
-        id="dob"
-        name="dob">
-        <label for="file">upload file:</label>
-        <input type="file"
-               id="file"
-               name="file"
-               multiple>
-               <label for="gender">gender</label>
-               <input type="radio" 
-               id="male" name="geneder"value="male">Male
-               <input type="radio" id="female"name="gender"value="female">Female
-               <br><br>
-               <label>
-                <input type="checkbox" name="agree"required>i agree to terms
-               </label>
-               <br><br>
-               <input type="submit" value="submit">
-               <input type="reset"value="reset">
-    </form>
+<body>
+    <!-- TOP ANNOUNCEMENT BAR - Golden Flowing Text -->
+<div style="background: linear-gradient(90deg, #D4AF77, #f5d29a, #D4AF77); color: #372f83; padding: 12px 0; text-align: center; font-weight: 600; font-size: 1.05rem; overflow: hidden; white-space: nowrap;">
+    <div style="display: inline-block; animation: marquee 25s linear infinite;">
+        🌸 10% OFF on all Birthday Gifts &amp; Bouquets | 
+        15% OFF on Wedding Orders above ETB 5000 | 
+        Free Delivery in Nazrēt for orders above ETB 1500 | 
+        🌸 10% OFF on all Birthday Gifts &amp; Bouquets |
+    </div>
+</div>
 
+<style>
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+</style>
+   <!-- IMPROVED NAVBAR -->
+<nav style="background-color: #6e2281; position: sticky; top: 0; z-index: 50; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;">
+        
+        <!-- Logo + Brand Name (No.3) -->
+        <div style="display: flex; align-items: center; gap: 14px;">
+            <img src="logo.png" alt="BLIPH" style="height: 58px; width: auto;">
+            <span style="font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 700; letter-spacing: 6px; color: darkgoldenrod;">BLIPH</span>
+        </div>
 
+        <!-- Menu Items (No.4 - Better spacing) -->
+        <div style="display: flex; gap: 42px; font-size: 1.05rem; font-weight: 500;">
+            <a href="index.html" style="color: white; text-decoration: none;">HOME</a>
+            <a href="shop.html" style="color: white; text-decoration: none;">SHOP</a>
+            <a href="about.html" style="color: white; text-decoration: none;">OUR STORY</a>
+            <a href="contact.html" style="color: white; text-decoration: none;">CONTACT</a>
+        </div>
+
+        <!-- Right Side (No.5 - Login/Sign Up + Cart) -->
+        <div style="display: flex; align-items: center; gap: 24px;">
+            <a href="#" style="background: #adadad; color: #372f83; padding: 10px 22px; border-radius: 9999px; font-weight: 600; text-decoration: none;">Login</a>
+            <a href="#" style="background: #a0a09f; color: #372f83; padding: 10px 22px; border-radius: 9999px; font-weight: 600; text-decoration: none;">Sign Up</a>
+            
+            <!-- Cart -->
+            <div onclick="toggleCart()" style="cursor: pointer; display: flex; align-items: center; gap: 6px; color: white;">
+                <span style="font-size: 1.7rem;">🛍️</span>
+                <span id="cart-count" style="background:#D4AF77; color:#372f83; font-size:0.85rem; width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold;">0</span>
+            </div>
+        </div>
+    </div>
+</nav>
+           
+    
+<!-- ==================== HERO SLIDESHOW - CLICK LEFT/RIGHT TO CHANGE ==================== -->
+<header id="hero-header" style="height: 100vh; min-height: 720px; position: relative; overflow: hidden; cursor: pointer;">
+    
+    <!-- Slideshow -->
+    <div id="hero-slideshow">
+         <img src="hero1.jpg" class="hero-slide" alt="BLIPH Luxury Flowers">
+        <img src="hero2.jpg" class="hero-slide" alt="Elegant Wedding Bouquet">
+        <img src="hero6.jpg" class="hero-slide" alt="Birthday Flower Arrangement">
+        <img src="pro3.jpg" class="hero-slide" alt="Party Decor">
+        <img src="home1.jpg" class="hero-slide" alt="Anniversary Blooms">
+        <img src="home2.jpg" class="hero-slide" alt="BLIPH Flower Farm">
+        <img src="pro1.jpg" class="hero-slide" alt="BLIPH Floral Design">
+        <img src="bir2.jpg" class="hero-slide" alt="BLIPH Fresh Flowers">
+    </div>
+
+    <!-- Dark Overlay -->
+    <div style="position: absolute; inset: 0; background: rgba(195, 191, 196, 0.03); z-index: 2;"></div>
+
+    <!-- Brand Content -->
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 3; color: white; width: 90%; max-width: 900px;">
+        <h1 style="font-family: 'Playfair Display', serif; font-size: 7rem; font-weight: 700; letter-spacing: 12px; margin-bottom: 1rem; text-shadow: 4px 4px 15px rgba(81, 13, 133, 0.6);color: darkgoldenrod;">BLIPH</h1>
+        <p style="font-size: 2rem; color: #D4AF77; letter-spacing: 6px; margin-bottom: 1rem;">Beauty • Love • Integrity • Peace • Hope</p>
+        <p  class="royal-script">Handcrafted flowers &amp; elegant decorations delivered with grace in Ethiopia</p>
+        <a href="shop.html" style="background: #D4AF77; color: #372f83; padding: 18px 60px; border-radius: 9999px; font-weight: 700; text-decoration: none; display: inline-block;">SHOP NOW</a>
+    </div>
+
+    <!-- Invisible Click Zones -->
+    <div id="click-left" style="position: absolute; left: 0; top: 0; width: 40%; height: 100%; z-index: 4;"></div>
+    <div id="click-right" style="position: absolute; right: 0; top: 0; width: 40%; height: 100%; z-index: 4;"></div>
+</header>
+    
+   <!-- ==================== SHOP BY OCCASION - LUXURY STAGGERED ANIMATION ==================== -->
+<section style="padding: 100px 20px; background-color: white;">
+    <div style="max-width: 1280px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 3rem; margin-bottom: 60px; color: #372f83;">Shop by Occasion</h2>
+        
+        <div id="occasion-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            
+            <!-- Wedding -->
+            <div class="occasion-card" data-delay="0">
+                <img src="wed1.jpg" alt="Wedding" style="width:100%; height:280px; object-fit:cover; border-radius:20px;">
+                <h3 style="margin-top: 20px; font-size: 1.8rem;">Wedding</h3>
+                <p style="color: #D4AF77;">Timeless elegance</p>
+            </div>
+
+            <!-- Birthday -->
+            <div class="occasion-card" data-delay="150">
+                <img src="hero3.jpg" alt="Birthday" style="width:100%; height:280px; object-fit:cover; border-radius:20px;">
+                <h3 style="margin-top: 20px; font-size: 1.8rem;">Birthday</h3>
+                <p style="color: #D4AF77;">Joyful celebrations</p>
+            </div>
+
+            <!-- Party -->
+            <div class="occasion-card" data-delay="300">
+                <img src="par1.jpg" alt="Party" style="width:100%; height:280px; object-fit:cover; border-radius:20px;">
+                <h3 style="margin-top: 20px; font-size: 1.8rem;">Party Decor</h3>
+                <p style="color: #D4AF77;">Make it unforgettable</p>
+            </div>
+
+            <!-- Anniversary -->
+            <div class="occasion-card" data-delay="450">
+                <img src="anv.jpg" alt="Anniversary" style="width:100%; height:280px; object-fit:cover; border-radius:20px;">
+                <h3 style="margin-top: 20px; font-size: 1.8rem;">Anniversary</h3>
+                <p style="color: #D4AF77;">Forever in bloom</p>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <!-- ==================== FEATURED PRODUCTS SECTION ==================== -->
+    <section>
+        <div>
+            <div>
+                <h2>Featured Blooms</h2>
+                <a href="shop.html">See all →</a>
+            </div>
+            
+            <!-- This grid will hold product cards (we will fill them with JS later) -->
+            <div id="featured-products">
+                <!-- 
+                    Product cards will be added here automatically later.
+                    For now it is empty so you can see the structure.
+                -->
+                    
+            </div>
+        </div>
+    
+    <!-- ==================== OUR FLOWER FARM VIDEO ==================== -->
+<dev style="padding: 5rem 2rem; background-color:#3c3486; text-align:  center;"
+    style="max-width: 1280px; margin: 0 auto;">
+        <h2 style="font-size: 2.8rem; margin-bottom: 1.5rem;">From Our Farm to Your Door</h2>
+        <p style="max-width: 700px; margin: 0 auto 2.5rem; font-size: 1.2rem; color: #555;">
+            Watch how we grow fresh, high-quality flowers with love and integrity in ethiopia.
+        </p>
+        
+       <!-- ==================== WIDE VIDEO SECTION - LIKE FARMGIRL STYLE ==================== -->
+<section style="padding: 100px 20px; background-color: #d6b997; text-align: center;">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+        
+        <!-- Title -->
+        <h2 style="font-size: 2.8rem; margin-bottom: 20px; color: #372f83;">
+            From Our Farm to Your Door
+        </h2>
+        <p style="font-size: 1.25rem; max-width: 700px; margin: 0 auto 40px; color: #555;">
+            Watch how we grow fresh, high-quality flowers with love and integrity in Oromiya.
+        </p>
+
+        <!-- Wide Video Container -->
+        <div style="max-width: 1100px; margin: 0 auto; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.15);">
+            <video 
+                controls 
+                autoplay 
+                muted 
+                loop 
+                playsinline 
+                style="width: 100%; height: auto; display: block; aspect-ratio: 16 / 9;">
+                <source src="bliph.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <p style="margin-top: 20px; font-size: 1.1rem; color: #666; font-style: italic;">
+            "Freshness you can trust — grown with care"
+        </p>
+    </div>
+</section>
+   
+<!-- ==================== LUXURY TESTIMONIALS SECTION ==================== -->
+<section style="padding: 100px 20px; background-color: #f8f1e9;">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        
+        <h2 style="font-size: 3rem; margin-bottom: 20px; color: #372f83;">What Our Customers Say</h2>
+        <p style="font-size: 1.3rem; color: #666; max-width: 700px; margin: 0 auto 60px;">
+            Real stories from people who received BLIPH flowers
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px;">
+            
+            <!-- Testimonial 1 -->
+            <div style="background: white; padding: 40px 30px; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.08);">
+                <div style="font-size: 2.2rem; color: #D4AF77; margin-bottom: 20px;">“</div>
+                <p style="font-size: 1.25rem; line-height: 1.8; color: #444; font-style: italic;">
+                    The most beautiful bouquet I have ever received. Delivered fresh and on time!
+                </p>
+                <div style="margin-top: 40px; display: flex; align-items: center; gap: 15px; justify-content: center;">
+                    <div style="width: 60px; height: 60px; background: #ddd; border-radius: 50%; overflow: hidden;">
+                        <img src="mik.jpg" style="width:100%; height:100%; object-fit: cover;">
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin: 0;">Mikiyas Sirak</p>
+                        <p style="color: #888; font-size: 0.95rem;">Adama</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div style="background: white; padding: 40px 30px; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.08);">
+                <div style="font-size: 2.2rem; color: #D4AF77; margin-bottom: 20px;">“</div>
+                <p style="font-size: 1.25rem; line-height: 1.8; color: #444; font-style: italic;">
+                    Perfect flowers for my daughter’s birthday party! She was so happy.
+                </p>
+                <div style="margin-top: 40px; display: flex; align-items: center; gap: 15px; justify-content: center;">
+                    <div style="width: 60px; height: 60px; background: #ddd; border-radius: 50%; overflow: hidden;">
+                        <img src="ema.jpg" style="width:100%; height:100%; object-fit: cover;">
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin: 0;">Emabet Haile</p>
+                        <p style="color: #888; font-size: 0.95rem;">Addis Ababa</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div style="background: white; padding: 40px 30px; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.08);">
+                <div style="font-size: 2.2rem; color: #D4AF77; margin-bottom: 20px;">“</div>
+                <p style="font-size: 1.25rem; line-height: 1.8; color: #444; font-style: italic;">
+                    The wedding party decorations were elegant and exactly what we dreamed of.
+                </p>
+                <div style="margin-top: 40px; display: flex; align-items: center; gap: 15px; justify-content: center;">
+                    <div style="width: 60px; height: 60px; background: #ddd; border-radius: 50%; overflow: hidden;">
+                        <img src="beti.jpg" style="width:100%; height:100%; object-fit: cover;">
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin: 0;">Betlehem Getachew</p>
+                        <p style="color: #888; font-size: 0.95rem;">Adama</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+    
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div>
+            
+            <!-- Left column: Logo + description -->
+            <div>
+                <img src="logo.png" 
+         alt="BLIPH Logo" 
+         style="height: 40px; width: auto;">
+            <span>BLIPH</span>
+                <p>Beauty, Love, Integrity, Peace &amp; Hope delivered to your door in Oromiya.</p>
+            </div>
+            
+            <!-- Quick Links column -->
+            <div>
+                <h4>Quick Links</h4>
+                <a href="shop.html">Shop Flowers</a>
+                <a href="shop.html">Wedding Decor</a>
+                <a href="about.html">Our Story</a>
+            </div>
+            
+            <!-- Services column -->
+            <div>
+                <h4>Services</h4>
+                <p>Same-day delivery in Ethiopia &amp; Worldwide</p>
+                <p>Custom arrangements</p>
+                <p>Gift wrapping</p>
+            </div>
+            <!-- Contact column -->
+            <div>
+                <h4>Contact Us</h4>
+                <p>📍 Adama, Ethiopia</p>
+                <p>📞 +251 953685658</p>
+                <p>✉️ Bliphsupport@gmail.com</p>
+            </div>
+        </div>
+        
+        <div>
+        <!-- Bottom copyright line -->
+            © 2026 BLIPH — All Rights Reserved
+        </div>
+    </footer>
+    
+    <!-- 
+        Simple cart drawer placeholder (hidden for now)
+        We will make it appear with JavaScript later
+    -->
+    <div id="cart-drawer" style="display: none;">
+        <div>
+            <h3>Your Cart</h3>
+            <button>Close</button>
+            
+            <div id="cart-items">
+                <!-- Cart items will appear here later -->
+            </div>
+            
+            <div>
+                <span>Total</span>
+                <span id="cart-total">ETB 0</span>
+            </div>
+            
+            <button>PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+    <script src="day3.js"></script>  
 </body>
+<<<<<<< HEAD
 
 </html>
+=======
+</html>
+>>>>>>> dcc860d (rename home to index)

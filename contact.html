@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - BLIPH | Let's Connect</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="day3.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div>
+            <div class="logo-container">
+                <img src="logo.png" alt="BLIPH Logo" style="height: 50px;">
+                <span class="brand-name" style="color: darkgoldenrod;">BLIPH</span>
+            </div>
+            
+            <div>
+                <a href="index.html">HOME</a>
+                <a href="shop.html">SHOP</a>
+                <a href="about.html">OUR STORY</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+            
+            <div onclick="toggleCart()" style="cursor: pointer;">
+                <span style="font-size: 1.6rem;">🛍️</span>
+                <span id="cart-count" style="background:#D4AF77; color:#372f83; font-size:0.8rem; width:24px; height:24px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:bold;">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Attractive Hero -->
+    <header class="contact-hero" style="background-image: url('secc.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+         <section>
+            <div class="about-hero-content">
+                <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color: #c68412;">Get in Touch</h1>
+                <h2 style="color: gold;">We'd love to hear from you!</h2>
+            </div>
+       </section>
+    </header>
+
+    <!-- Main Contact Content -->
+    <section class="contact-section">
+        <div class="contact-container">
+            
+            <!-- Left Side: Introduction -->
+            <div class="contact-intro">
+                <h2>Let's Create Something Beautiful Together</h2>
+                <p>
+                    Whether you're planning a wedding, celebrating a birthday, organizing a party, 
+                    or simply want to brighten someone's day — we're just one message away.
+                </p>
+                <p>
+                    Our team is passionate about delivering fresh, premium flowers and elegant decorations 
+                    with care, integrity, and love across Oromiya.
+                </p>
+                
+                <div class="contact-info">
+                    <h3>Reach Us Directly</h3>
+                    <p><strong>📍 Location:</strong> Nazrēt, Oromiya, Ethiopia</p>
+                    <p><strong>📞 Phone:</strong> +251 953685658</p>
+                    <p><strong>✉️ Email:</strong> abenezersirak80@gmail.com</p>
+                </div>
+
+                <!-- Telegram Link -->
+                <div class="tg-link">
+                    <p>💬 Chat with us instantly on Telegram:</p>
+                    <a href="https://t.me/officer9198" target="_blank" class="telegram-btn">
+                        <span>Message us on Telegram</span>
+                        <span style="font-size: 1.4rem;">↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Side: Contact Form -->
+            <div class="contact-form">
+                <h3>Send us a Message</h3>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="tel" placeholder="Your Phone Number" required>
+                    <input type="email" placeholder="Your Email">
+                    <textarea placeholder="Tell us about your order or special request..." rows="6" required></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <div>
+                <span class="brand-name" style="font-size: 2rem;">BLIPH</span>
+                <p>Beauty, Love, Integrity, Peace &amp; Hope delivered to your door in Oromiya.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="day3.js"></script>
+</body>
+</html>

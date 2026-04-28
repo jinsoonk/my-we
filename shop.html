@@ -18,11 +18,11 @@
         <div>
             <div class="logo-container">
                 <img src="logo.png" alt="BLIPH Logo" style="height: 50px;">
-                <span class="brand-name">BLIPH</span>
+                <span class="brand-name" style="color: darkgoldenrod;">BLIPH</span>
             </div>
             
             <div>
-                <a href="home.html">HOME</a>
+                <a href="index.html">HOME</a>
                 <a href="shop.html">SHOP</a>
                 <a href="about.html">OUR STORY</a>
                 <a href="contact.html">CONTACT</a>
@@ -30,7 +30,7 @@
             
             <div onclick="toggleCart()" style="cursor: pointer;">
                 <span style="font-size: 1.6rem;">🛍️</span>
-                <span id="cart-count" style="background:#D4AF77; color:#2514c0; font-size:0.8rem; width:24px; height:24px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:bold;">0</span>
+                <span id="cart-count" style="background:#D4AF77; color:rgb(11, 11, 184); font-size:0.8rem; width:24px; height:24px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:bold;"></span>
             </div>
         </div>
     </nav>
@@ -41,13 +41,13 @@
     <div class="shop-hero-overlay"></div>
     
     <!-- Background Image -->
-    <img src="bir3.jpg" 
+    <img src="pro3.jpg" 
          alt="BLIPH Shop know" class="shop-hero-bg">
 
     <!-- Content on top of image -->
      <section>
     <div class="shop-hero-content">
-        <h1>Our Beautiful Collection</h1>
+        <h1 style="color: darkgoldenrod;">Our Beautiful Collection</h1>
         <p>Discover fresh flowers, premium bouquets &amp; elegant decorations for every celebration</p>
         <a href="#" onclick="document.getElementById('products-grid').scrollIntoView({ behavior: 'smooth' })" 
            class="shop-now-btn">Browse All Flowers</a>
@@ -61,9 +61,12 @@
                     <input type="text" id="search-input" placeholder="Search flowers, bouquets..." onkeyup="searchProducts()">
                 </div>
                 
-                <div id="products-grid" class="products-grid">
-                    <!-- Products will be loaded here by JavaScript -->
-                </div>
+               <div id="products-grid" style="display: grid; 
+                               grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); 
+                               gap: 35px; 
+                               padding: 40px 0;">
+    <!-- Products will be added here automatically by JavaScript -->
+</div>
             </div>
         </div>
     </section>
@@ -145,7 +148,36 @@
             price: 1350,
             occasion: "wedding",
             img: "wed5.jpg",
-            desc: "Pure and sophisticated white lilies."
+            desc: "Warm orange and yellow tulips that bring sunshine and joy."
+        },
+         {
+            id: 7,
+            name: "Lavender Romance Bouquet",
+            price: 1150,
+            occasion: "anniversary",
+            img: "lav.jpg",
+            desc: "Calming lavender mixed with soft white roses for romantic moments."
+        }, {
+            id: 8,
+            name: " Exotic Orchid Elegance",
+            price: 1890,
+            occasion: "wedding",
+            img: "exo.jpg",
+            desc: "Beautiful exotic orchids with elegant greenery for special occasions."
+        }, {
+            id: 9,
+            name: "Blush Peony Dream Box",
+            price: 1350,
+            occasion: "party",
+            img: "blu.jpg",
+            desc: "Luxurious soft pink peonies arranged in a premium gift box."
+        }, {
+            id: 10,
+            name: "Golden Sunset Tulips",
+            price: 980,
+            occasion: "birthday",
+            img: "gol.jpg",
+            desc: "Warm orange and yellow tulips that bring sunshine and joy."
         }
     ];
 

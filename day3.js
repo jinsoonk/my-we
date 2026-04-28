@@ -3,68 +3,57 @@
 // This file adds interactivity to your homepage
 // We keep it simple and well-commented so you understand every line
 // =============================================
-
-
-// ==================== HERO SLIDESHOW (Auto + Manual Arrows) ====================
-let currentSlide = 0;
-let slideInterval;
-
+// ==================== HERO SLIDESHOW WITH CLICK ON SIDES ====================
 function startHeroSlideshow() {
     const slides = document.querySelectorAll('.hero-slide');
-    if (slides.length === 0) {
-        console.error("No hero slides found! Check image paths and HTML.");
-        return;
-    } 
+    if (slides.length === 0) return;
+
+    let currentSlide = 0;
 
     function showSlide(index) {
-        slides.forEach(slide => slide.classList.remove('active'));
+        slides.forEach(s => s.classList.remove('active'));
         slides[index].classList.add('active');
         currentSlide = index;
     }
-    // Refresh brand overlay fade effect
-document.querySelector('.hero-brand-content').style.opacity = '0';
-setTimeout(() => {
-    document.querySelector('.hero-brand-content').style.opacity = '1';
-}, 300);
+
+    // Auto slideshow
+    let interval = setInterval(() => {
+        let next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+    }, 7000);
+
+    // Click on left side = previous
+    const leftZone = document.getElementById('click-left');
+    if (leftZone) {
+        leftZone.addEventListener('click', () => {
+            clearInterval(interval);
+            let prev = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prev);
+            interval = setInterval(() => {
+                let next = (currentSlide + 1) % slides.length;
+                showSlide(next);
+            }, 7000);
+        });
+    }
+
+    // Click on right side = next
+    const rightZone = document.getElementById('click-right');
+    if (rightZone) {
+        rightZone.addEventListener('click', () => {
+            clearInterval(interval);
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+            interval = setInterval(() => {
+                let n = (currentSlide + 1) % slides.length;
+                showSlide(n);
+            }, 7000);
+        });
+    }
 
     // Show first slide
     showSlide(0);
-
-    // Auto change every 5 seconds
-    slideInterval = setInterval(() => {
-        let next = (currentSlide + 1) % slides.length;
-        showSlide(next);
-    }, 5000);
-
-    // Manual buttons
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            clearInterval(slideInterval); // Stop auto when user clicks
-            let prev = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(prev);
-            // Restart auto after 8 seconds
-            slideInterval = setInterval(() => {
-                let next = (currentSlide + 1) % slides.length;
-                showSlide(next);
-            }, 5000);
-        });
-    }
-
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            clearInterval(slideInterval);
-            let next = (currentSlide + 1) % slides.length;
-            showSlide(next);
-            slideInterval = setInterval(() => {
-                let n = (currentSlide + 1) % slides.length;
-                showSlide(n);
-            }, 5000);
-        });
-    }
 }
+
 
 // Call it when page loads
 document.addEventListener('DOMContentLoaded', function() {
@@ -254,6 +243,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartIcon = document.querySelector('nav > div > div:last-child');
     if (cartIcon) {
         cartIcon.addEventListener('click', toggleCart);
+   // ==================== STAGGERED ANIMATION FOR OCCASION CARDS ====================
+function animateOccasionCards() {
+    const cards = document.querySelectorAll('.occasion-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                const delay = parseInt(entry.target.getAttribute('data-delay')) || 0;
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, delay);
+                
+                observer.unobserve(entry.target); // Run only once
+            }
+        });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+}
+
+// Call it when page loads
+animateOccasionCards();
     }
     
     // Optional: Close cart when clicking outside (advanced but nice)
